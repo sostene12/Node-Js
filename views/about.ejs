@@ -1,35 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Node js | <%= title %>
-    </title>
-</head>
+<%- include('./partials/head.ejs') %>
 
-<body>
-    <nav>
-        <div class="site-title">
-            <a href="/">Blog Ninja</a>
-            <p>A net Ninja site</p>
-        </div>
-        <ul>
-            <li><a href="/">Blogs</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/blogs/create">New Blog</a></li>
-        </ul>
-    </nav>
-    <div class="about content">
-        <h1>About page</h1>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas, fugit beatae. Deserunt explicabo corrupti
-            asperiores.</p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas, fugit beatae. Deserunt explicabo corrupti
-            asperiores.</p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas, fugit beatae. Deserunt explicabo corrupti
-            asperiores.</p>
-    </div>
-</body>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+
+            <div class="about content">
+                <h1>About page</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas, fugit beatae. Deserunt explicabo
+                    corrupti
+                    asperiores.</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas, fugit beatae. Deserunt explicabo
+                    corrupti
+                    asperiores.</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas, fugit beatae. Deserunt explicabo
+                    corrupti
+                    asperiores.</p>
+            </div>
+            <%- include("./partials/footer.ejs") %>
+
+    </body>
 
 </html>

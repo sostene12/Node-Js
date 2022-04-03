@@ -9,8 +9,11 @@ app.set("view engine", "ejs");
 // by default ejs looks in your directory and search for folde called views
 // app.set("views","my views") ; //setting up  another folder if necessary
 
-// listen for requests
-app.listen(3000);
+// listen for
+const port = 3000;
+app.listen(port, () => {
+  console.log("app is listening on port " + port);
+});
 
 app.get("/", (req, res) => {
   // res.sendFile("./views/index.html", { root: __dirname });
