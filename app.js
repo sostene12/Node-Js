@@ -1,4 +1,5 @@
 const express = require("express");
+const morgan = require("morgan");
 
 // setting up an express app
 const app = express();
@@ -14,6 +15,9 @@ const port = 3000;
 app.listen(port, () => {
   console.log("app is listening on port " + port);
 });
+
+// middleware
+app.use(morgan("common"));
 
 app.get("/", (req, res) => {
   // res.sendFile("./views/index.html", { root: __dirname });
