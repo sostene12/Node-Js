@@ -2,6 +2,9 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 
+// importing model
+const Blog = require("./models/blog");
+
 // setting up an express app
 const app = express();
 
@@ -22,6 +25,46 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
+
+// monngoose and mongo sandbox routes
+app.get("/add-blog", (req, res) => {
+  const blog = new Blog({
+    title: "Second blog",
+    snippet: "The introduction to node",
+    body: "The node js backend possibilities",
+  });
+
+  blog
+    .save()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+// getting all blogs from the database
+app.get("/all-blogs", (req, res) => {
+  Blog.find()
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+// getting single blog
+app.get("/single-blog", (req, res) => {
+  Blog.findById("624c6ef8efde2cc5365ff45b")
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
 
 // register view
 app.set("view engine", "ejs");
