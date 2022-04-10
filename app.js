@@ -105,8 +105,10 @@ app.post("/blogs", (req, res) => {
     });
 });
 
+// THIS IS THE PLACE WHERE THERE IS ERROR
 app.get("/blogs/:id", (req, res) => {
   const id = req.params.id;
+  console.log("id", id);
   Blog.findById(id)
     .then((result) => {
       res.render("details", { blog: result, title: "Blog Details" });
@@ -122,13 +124,11 @@ app.delete("/blogs/:id", (req, res) => {
   Blog.findByIdAndDelete(id)
     .then((result) => {
       res.json({ redirect: "/blogs" });
-      // { redirect: "/blogs" });
-      console.log(result);
     })
     .catch((error) => console.log(error));
 });
 
-app.get("/blogs/create", (req, res) => {
+app.get("/create", (req, res) => {
   res.render("create", { title: "Create a new blog" });
 });
 
